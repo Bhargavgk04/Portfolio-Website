@@ -44,7 +44,7 @@ const AboutSection = () => {
                 <p className="text-[#ADB7BE] leading-relaxed mb-6 md:mb-8 text-sm md:text-base max-w-3xl">
                   I am a passionate full-stack developer with expertise in building modern web applications. 
                   My journey in software development has been driven by a constant desire to learn and create 
-                  innovative solutions. I specialize in React, Node.js, and MongoDB, and I'm always exploring 
+                  innovative solutions. I specialize in React, Node.js, and MongoDB, and I&apos;m always exploring 
                   new technologies to enhance my skill set.
                 </p>
                 <div className="w-full mt-auto">
