@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_PUBLIC_EMAILJS_SERVICE_ID = "service_toh5y5d"
+  NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = "template_adio3fd"
+  NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = "mXppsONCDlpPFSzKf"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs" 

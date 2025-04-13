@@ -12,7 +12,7 @@ const AboutSection = () => {
     { id: 'experience', label: 'Experience' },
   ];
 
-  return (
+    return (
     <section id="about" className="min-h-screen w-full bg-[#121212] py-12 md:py-20">
       <div className="w-full h-full px-4 md:px-8 lg:px-12">
         <div className="w-full max-w-[95%] mx-auto">
@@ -34,9 +34,9 @@ const AboutSection = () => {
 
           <div className="bg-[#1E1E1E] rounded-lg p-6 md:p-8 border border-[#333333] w-full min-h-[60vh]">
             {activeTab === 'about' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full h-full flex flex-col"
               >
@@ -54,9 +54,9 @@ const AboutSection = () => {
             )}
 
             {activeTab === 'education' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full h-full"
               >
@@ -78,13 +78,13 @@ const AboutSection = () => {
                     <p className="text-gray-500 text-sm md:text-base">2016 - 2018</p>
                   </div>
                 </div>
-              </motion.div>
+                    </motion.div>
             )}
 
             {activeTab === 'experience' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full h-full"
               >
@@ -101,13 +101,13 @@ const AboutSection = () => {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+                    </motion.div>
             )}
           </div>
         </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 };
 
 export default AboutSection;
