@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+// Initialize Resend with API key from environment variable
+const resend = new Resend(process.env.RESEND_API_KEY || '');
+const fromEmail = process.env.FROM_EMAIL || '';
 
 export async function POST(req) {
   try {
+    // Check for required environment variables
     if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not set');
       return NextResponse.json(
         { error: "Server configuration error: Missing API key" },
         { status: 500 }
@@ -14,6 +17,7 @@ export async function POST(req) {
     }
 
     if (!process.env.FROM_EMAIL) {
+      console.error('FROM_EMAIL is not set');
       return NextResponse.json(
         { error: "Server configuration error: Missing sender email" },
         { status: 500 }
