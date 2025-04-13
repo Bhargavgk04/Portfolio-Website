@@ -9,56 +9,47 @@ const projectsData =
     [
         {
             id: 1,
-            title: "React Portfolio Website",
-            description: "Project 1 description",
+            title: "Real-Time Chatting Website",
+            description: "A web-based platform enabling seamless real-time chat between users.",
             image: "/images/projects/1.png",
             tag: ["All", "Web"],
-            gitUrl: "/",
-            previewUrl: "/",
+            gitUrl: "https://chat-mern-app-x4j1.onrender.com/",
+            
           },
           {
             id: 2,
-            title: "Potography Portfolio Website",
-            description: "Project 2 description",
+            title: "Campus 360 - Automated Paperless Transparent College System",
+            description: "An all-in-one automated and paperless system ensuring transparent and efficient campus management.",
             image: "/images/projects/2.png",
             tag: ["All", "Web"],
-            gitUrl: "/",
-            previewUrl: "/",
+            gitUrl: "https://github.com/Bhargavgk04/Campus360",
+    
           },
           {
             id: 3,
-            title: "E-commerce Application",
-            description: "Project 3 description",
+            title: "Campus Connect - Student Q & A Platform",
+            description: "A student-driven Q&A platform fostering knowledge sharing and peer-to-peer support within the campus.",
             image: "/images/projects/3.png",
             tag: ["All", "Web"],
-            gitUrl: "/",
-            previewUrl: "/",
+            gitUrl: "https://github.com/Bhargavgk04/Campus-Connect",
+           
           },
           {
             id: 4,
-            title: "Food Ordering Application",
-            description: "Project 4 description",
+            title: "Portfolio Website",
+            description: "Designed this very site for my portfolio",
             image: "/images/projects/4.png",
-            tag: ["All", "Mobile"],
-            gitUrl: "/",
+            tag: ["All", "Web"],
+            gitUrl: "",
             previewUrl: "/",
           },
           {
             id: 5,
-            title: "React Firebase Template",
-            description: "Authentication and CRUD operations",
+            title: "Digital Attendance System",
+            description: "A comprehensive data analysis project using Python, Pandas, and Matplotlib for data visualization and insights.",
             image: "/images/projects/5.png",
-            tag: ["All", "Web"],
-            gitUrl: "/",
-            previewUrl: "/",
-          },
-          {
-            id: 6,
-            title: "Full-stack Roadmap",
-            description: "Project 5 description",
-            image: "/images/projects/6.png",
-            tag: ["All", "Web"],
-            gitUrl: "/",
+            tag: ["All", "Python"],
+            gitUrl: "",
             previewUrl: "/",
           },
     ]
@@ -83,7 +74,7 @@ const ProjectsSection = () => {
   };    
 
   return (
-    < section>
+    <section id="projects">
         <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
             My Projects
         </h2>
@@ -100,10 +91,11 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Python"
+          isSelected={tag === "Python"}
         />
         </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
         <ul ref={ref} className ="grid md:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.map((project,index) => (
               <motion.li
@@ -125,6 +117,7 @@ const ProjectsSection = () => {
                 </motion.li>
                   ))}   
                 </ul>
+                </div>
                 </section>
                 );
             };

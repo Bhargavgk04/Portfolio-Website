@@ -2,32 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-[#121212] overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 hover:bg-gradient-to-br hover:from-orange-600 hover:to-orange-700 text-white transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full bg-transparent hover:bg-[#1E1E1E] text-white border border-white hover:border-orange-500 transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent;
+  }
+
+  .rainbow-button {
+    @apply relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group;
+  }
+
+  .rainbow-button::before {
+    @apply content-[''] absolute inset-[-1000%] animate-[spin_2s_linear_infinite];
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      #FF8C00 0%,    /* Orange */
+      #FF0000 50%,   /* Red */
+      #0066FF 100%   /* Blue */
+    );
+  }
+
+  .rainbow-button-inner {
+    @apply relative px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0;
+  }
+}
+
+/* Add responsive breakpoints */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Add smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
