@@ -64,18 +64,21 @@ const AboutSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <div className="bg-[#0A0A0A] p-4 md:p-6 rounded-lg border border-[#333333] hover:border-[#666666] transition-all duration-300">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Bachelor of Technology in Computer Science</h3>
-                    <p className="text-[#ADB7BE] text-sm md:text-base">University Name</p>
+                    <p className="text-[#ADB7BE] text-sm md:text-base">N. B. Navale College of Engineering and Technology, Solapur</p>
                     <p className="text-gray-500 text-sm md:text-base">2020 - 2024</p>
+                    <p className="text-[#FF8C00] text-sm md:text-base mt-2">CGPA: 7.8</p>
                   </div>
                   <div className="bg-[#0A0A0A] p-4 md:p-6 rounded-lg border border-[#333333] hover:border-[#666666] transition-all duration-300">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Higher Secondary Education</h3>
-                    <p className="text-[#ADB7BE] text-sm md:text-base">School Name</p>
+                    <p className="text-[#ADB7BE] text-sm md:text-base">Narayana Junior College, Hyderabad</p>
                     <p className="text-gray-500 text-sm md:text-base">2018 - 2020</p>
+                    <p className="text-[#FF8C00] text-sm md:text-base mt-2">Percentage: 90.5</p>
                   </div>
                   <div className="bg-[#0A0A0A] p-4 md:p-6 rounded-lg border border-[#333333] hover:border-[#666666] transition-all duration-300">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Secondary Education</h3>
-                    <p className="text-[#ADB7BE] text-sm md:text-base">School Name</p>
+                    <p className="text-[#ADB7BE] text-sm md:text-base">H. C. Convent English Medium School, Solapur</p>
                     <p className="text-gray-500 text-sm md:text-base">2016 - 2018</p>
+                    <p className="text-[#FF8C00] text-sm md:text-base mt-2">Percentage: 84.5%</p>
                   </div>
                 </div>
                     </motion.div>

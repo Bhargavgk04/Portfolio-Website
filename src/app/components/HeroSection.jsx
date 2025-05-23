@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
 import {motion} from "framer-motion";
@@ -8,9 +8,25 @@ import Link from "next/link";
 const HeroSection = () => {
   const [showCVModal, setShowCVModal] = useState(false);
 
-  const handleViewCV = () => {
+  const handleViewCV = useCallback(() => {
     setShowCVModal(true);
-  };
+  }, []);
+
+  const handleScrollToContact = useCallback(() => {
+    const contactElement = document.getElementById("contact");
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  const handleDownloadCV = useCallback(() => {
+    const link = document.createElement('a');
+    link.href = '/files/resume.pdf';
+    link.download = 'Bhargav_Katkam_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, []);
 
   return (
     <section id="home" className="lg:py-8">
@@ -53,27 +69,29 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
-            <button
-              onClick={() => {
-                document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-              }}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleScrollToContact}
               className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF8C00_0%,#FF0000_50%,#0066FF_100%)]" />
               <span className="relative w-full px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0">
                 Hire Me
               </span>
-            </button>
+            </motion.button>
 
-            <button
-              onClick={() => setShowCVModal(true)}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleViewCV}
               className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF8C00_0%,#FF0000_50%,#0066FF_100%)]" />
               <span className="relative w-full px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0">
                 View CV
               </span>
-            </button>
+            </motion.button>
           </div>
         </motion.div>
 
@@ -99,14 +117,16 @@ const HeroSection = () => {
       {showCVModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-[#121212] rounded-lg w-full max-w-4xl h-[80vh] relative">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setShowCVModal(false)}
               className="absolute top-4 right-4 text-white hover:text-orange-500"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </button>
+            </motion.button>
             <div className="h-full p-4 sm:p-8">
               <iframe
                 src="/files/resume.pdf"
@@ -116,16 +136,15 @@ const HeroSection = () => {
               />
             </div>
             <div className="absolute bottom-4 right-4">
-              <a
-                href="/files/resume.pdf"
-                download="Bhargav_Katkam_Resume.pdf"
-                className="relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group"
-              >
+              <div className="relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF8C00_0%,#FF0000_50%,#0066FF_100%)]" />
-                <span className="relative px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0">
+                <button
+                  onClick={handleDownloadCV}
+                  className="relative w-full px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0"
+                >
                   Download CV
-                </span>
-              </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>
