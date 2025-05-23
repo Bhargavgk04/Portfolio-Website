@@ -13,6 +13,9 @@ export const metadata = {
   title: "Bhargav Katkam - Portfolio",
   description: "Full Stack Developer Portfolio showcasing projects and skills",
   keywords: ["Full Stack Developer", "Web Development", "React", "Node.js", "Portfolio"],
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function Home() {
