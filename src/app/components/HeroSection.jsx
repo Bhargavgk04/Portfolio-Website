@@ -9,7 +9,12 @@ const HeroSection = () => {
   const [showCVModal, setShowCVModal] = useState(false);
 
   const handleViewCV = useCallback(() => {
-    setShowCVModal(true);
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      // On mobile, open PDF in new tab
+      window.open('/files/resume.pdf', '_blank');
+    } else {
+      setShowCVModal(true);
+    }
   }, []);
 
   const handleScrollToContact = useCallback(() => {

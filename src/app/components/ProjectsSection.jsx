@@ -13,45 +13,56 @@ const projectsData =
             description: "A web-based platform enabling seamless real-time chat between users.",
             image: "/images/projects/1.png",
             tag: ["All", "Web"],
-            gitUrl: "https://chat-mern-app-x4j1.onrender.com/",
-            
+            gitUrl: "https://github.com/Bhargavgk04/Chat-MERN-App",
+            previewUrl: "https://silent-chat.netlify.app/",
           },
           {
             id: 2,
-            title: "Campus 360 - Automated Paperless Transparent College System",
-            description: "An all-in-one automated and paperless system ensuring transparent and efficient campus management.",
+            title: "Student Learning Platform",
+            description: "A full-stack MERN web application designed for students to ask, answer, and review questions related to their colleges. Built with React, Node.js, Express, and MongoDB, featuring user authentication, responsive UI, and role-based content access.",
             image: "/images/projects/2.png",
-            tag: ["All", "Web"],
-            gitUrl: "https://github.com/Bhargavgk04/Campus360",
-    
+            tag: ["All", "Web", "MERN"],
+            gitUrl: "https://github.com/Bhargavgk04/SkillSutra/tree/main",
+            previewUrl: "https://skillsutra.netlify.app/",
           },
           {
             id: 3,
-            title: "Campus Connect - Student Q & A Platform",
-            description: "A student-driven Q&A platform fostering knowledge sharing and peer-to-peer support within the campus.",
-            image: "/images/projects/3.png",
-            tag: ["All", "Web"],
-            gitUrl: "https://github.com/Bhargavgk04/Campus-Connect",
-           
-          },
-          {
-            id: 4,
             title: "Portfolio Website",
             description: "Designed this very site for my portfolio",
+            image: "/images/projects/3.png",
+            tag: ["All", "Web"],
+            gitUrl: "https://github.com/Bhargavgk04/Portfolio-Website",
+            previewUrl: "/",
+          }, 
+          {
+            id: 4,
+            title: "Campus 360 - Automated Paperless Transparent College System",
+            description: "An all-in-one automated and paperless system ensuring transparent and efficient campus management.",
             image: "/images/projects/4.png",
             tag: ["All", "Web"],
-            gitUrl: "",
-            previewUrl: "/",
+            gitUrl: "https://github.com/Bhargavgk04/Campus360",
+            previewUrl: "",
           },
           {
             id: 5,
+            title: "Campus Connect - Student Q & A Platform",
+            description: "A student-driven Q&A platform fostering knowledge sharing and peer-to-peer support within the campus.",
+            image: "/images/projects/5.png",
+            tag: ["All", "Web"],
+            gitUrl: "https://github.com/Bhargavgk04/Campus-Connect",
+            previewUrl: "",
+          },
+        
+          {
+            id: 6,
             title: "Digital Attendance System",
             description: "A comprehensive data analysis project using Python, Pandas, and Matplotlib for data visualization and insights.",
-            image: "/images/projects/5.png",
+            image: "/images/projects/6.png",
             tag: ["All", "Python"],
-            gitUrl: "",
-            previewUrl: "/",
+            gitUrl: "https://github.com/Bhargavgk04/Digital-Attendance-System",
+            previewUrl: "",
           },
+                  
     ]
 
 const ProjectsSection = () => {
