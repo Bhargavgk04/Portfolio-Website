@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "./components/Navbar";
+import ThemeToggle from "./components/ThemeToggle";
 
 export const metadata = {
   title: "Bhargav's Portfolio",
@@ -10,8 +10,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className} suppressHydrationWarning>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-[#121212] min-h-screen" suppressHydrationWarning>
+        <ThemeProvider>
+          <Navbar />
+          <ThemeToggle />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

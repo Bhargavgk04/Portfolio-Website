@@ -97,6 +97,37 @@ body {
   }
 }
 
+/* Motion utilities */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes softGlow {
+  0% { box-shadow: 0 0 0 rgba(255, 140, 0, 0.0); }
+  50% { box-shadow: 0 10px 30px rgba(255, 140, 0, 0.18); }
+  100% { box-shadow: 0 0 0 rgba(255, 140, 0, 0.0); }
+}
+
+@layer utilities {
+  .anim-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .anim-glow {
+    animation: softGlow 3.5s ease-in-out infinite;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 /* Add smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;

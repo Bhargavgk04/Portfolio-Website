@@ -49,7 +49,7 @@ const SkillsSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="bg-[#1E1E1E] rounded-lg p-6 border border-[#333333] relative group"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, y: -3 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-center justify-between mb-2">

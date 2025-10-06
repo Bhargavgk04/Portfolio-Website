@@ -69,7 +69,7 @@ const Footer = () => {
               {['Home', 'About', 'Projects', 'Contact'].map((link) => (
                 <motion.a
                   key={link}
-                  href={`#${link.toLowerCase()}`}
+                  href={`/#${link.toLowerCase()}`}
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
                   className="block text-[#ADB7BE] text-lg hover:text-white transition-colors relative group"
@@ -110,6 +110,13 @@ const Footer = () => {
               </motion.a>
             </div>
           </motion.div>
+        </div>
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#ADB7BE]">
+          <p>Built with Next.js and Tailwind CSS</p>
+          <div className="flex items-center gap-3">
+            <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-[#FF8C00] via-[#FF0000] to-[#0066FF]" />
+            <span>Always learning, shipping, improving.</span>
+          </div>
         </div>
       </div>
     </motion.footer>

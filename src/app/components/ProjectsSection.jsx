@@ -3,6 +3,7 @@ import React, { useState ,useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectTag from './ProjectTag';
 import { motion, useInView} from "framer-motion";
+import ProjectModal from './ProjectModal';
 
 
 const projectsData = 
@@ -69,6 +70,18 @@ const ProjectsSection = () => {
   const[tag,setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref , { once: true });
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 200);
+  };
 
 
   const handleTagChange = (newTag) => {
@@ -123,12 +136,14 @@ const ProjectsSection = () => {
                   description={project.description} 
                   imgUrl={project.image}
                   gitUrl={project.gitUrl}
-                  previewUrl={project.previewUrl} 
+                  previewUrl={project.previewUrl}
+                  onClick={() => handleOpenModal(project)}
                   />
                 </motion.li>
                   ))}   
                 </ul>
                 </div>
+                <ProjectModal isOpen={isModalOpen} onClose={handleCloseModal} project={selectedProject} />
                 </section>
                 );
             };

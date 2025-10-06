@@ -33,6 +33,21 @@ const HeroSection = () => {
     document.body.removeChild(link);
   }, []);
 
+  // Listen for global event to open CV from Navbar
+  React.useEffect(() => {
+    const openCvHandler = () => {
+      handleViewCV();
+    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('open-cv', openCvHandler);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('open-cv', openCvHandler);
+      }
+    };
+  }, [handleViewCV]);
+
   return (
     <section id="home" className="lg:py-8">
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 md:gap-12">
@@ -78,7 +93,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleScrollToContact}
-              className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group"
+              className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group anim-glow"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF8C00_0%,#FF0000_50%,#0066FF_100%)]" />
               <span className="relative w-full px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0">
@@ -90,7 +105,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleViewCV}
-              className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group"
+              className="w-full sm:w-auto relative inline-flex items-center justify-center p-[2px] overflow-hidden font-medium text-white rounded-full group anim-glow"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF8C00_0%,#FF0000_50%,#0066FF_100%)]" />
               <span className="relative w-full px-6 py-3 transition-all bg-[#121212] rounded-full group-hover:bg-opacity-0">
@@ -105,7 +120,7 @@ const HeroSection = () => {
           animate ={{opacity:1 , scale:1}} 
           transition={{duration: 0.7}}  
           className="col-span-12 sm:col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative mx-auto">
+          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative mx-auto anim-float">
             <Image
               src="/images/hero-image.png"
               alt="hero-image"

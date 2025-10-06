@@ -131,7 +131,8 @@ const EmailSection = () => {
                 >
                   Your Name
                 </label>
-                <input
+                <motion.input
+                  whileFocus={{ scale: 1.01 }}
                   name="name"
                   type="text"
                   id="name"
@@ -153,7 +154,8 @@ const EmailSection = () => {
                 >
                   Your email
                 </label>
-                <input
+                <motion.input
+                  whileFocus={{ scale: 1.01 }}
                   name="email"
                   type="email"
                   id="email"
@@ -175,7 +177,8 @@ const EmailSection = () => {
                 >
                   Subject
                 </label>
-                <input
+                <motion.input
+                  whileFocus={{ scale: 1.01 }}
                   name="title"
                   type="text"
                   id="title"
@@ -197,7 +200,8 @@ const EmailSection = () => {
                 >
                   Message
                 </label>
-                <textarea
+                <motion.textarea
+                  whileFocus={{ scale: 1.005 }}
                   name="message"
                   id="message"
                   value={formData.message}

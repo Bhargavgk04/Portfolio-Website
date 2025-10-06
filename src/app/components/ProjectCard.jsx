@@ -1,40 +1,18 @@
 import React from "react";
-import { EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, onClick }) => {
   return (
-    <div>
-      <div
-        className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
-      >
-        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
-          {previewUrl && (
-            <Link
-              href={previewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-            >
-              <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
-            </Link>
-          )}
-          {gitUrl && (
-            <Link
-              href={gitUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-            >
-              <img src="/github-icon.svg" alt="Github Icon" className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:filter group-hover/link:brightness-200" />
-            </Link>
-          )}
-        </div>
-      </div>
-      <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE]">{description}</p>
+    <div className="group will-change-transform">
+      <button
+        type="button"
+        onClick={onClick}
+        className="h-52 md:h-64 w-full rounded-xl relative text-left transition-transform duration-300 ease-out transform-gpu group-hover:scale-[1.03] group-hover:z-[2] group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+        style={{ background: `url(${imgUrl}) center/cover no-repeat` }}
+      />
+      <div className="text-white rounded-xl mt-3 bg-[#181818] border border-[#2a2a2a] p-4 transition-transform duration-300 ease-out transform-gpu group-hover:scale-[1.01] group-hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)]">
+        <h5 className="text-lg md:text-xl font-semibold mb-2 truncate" title={title}>{title}</h5>
+        <p className="text-[#ADB7BE] text-sm md:text-base h-12 overflow-hidden">{description}</p>
       </div>
     </div>
   );
